@@ -7,7 +7,14 @@
     <img src="{{ if .Site.Params.author.image }}{{ .Site.Params.author.image }}{{ else }}/assets/images/default-avatar.png{{ end }}"
       class="rounded-circle mx-auto d-block img-fluid"
     />
-    <h1 class="greeting">Hi, I am {{ if .Site.Params.author.name }}{{ .Site.Params.author.name }}{{ else }}Jane Doe{{ end }}
+    <h1 class="greeting">Hi, I am
+      {{ if .Site.Params.author.nickname }}
+        {{ .Site.Params.author.nickname }}
+      {{ else if .Site.Params.author.name }}
+        {{ .Site.Params.author.name }}
+      {{ else }}
+        Jane Doe
+      {{ end }}
     </h1>
     <div class="typing-carousel">
       <span id="ityped" class="ityped"></span>
@@ -18,6 +25,7 @@
       <li>{{ . }}</li>
       {{ end }}
     </ul>
+    <!-- @todo this section should go to the first section, not necessarily about -->
     <a href="#about"><i class="arrow bounce fa fa-chevron-down"></i></a>
   </div>
 </div>
